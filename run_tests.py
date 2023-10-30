@@ -10,6 +10,12 @@ from tools.tester import PerformanceTestCase, Tester, PEP8TestCase
 
 
 def get_data(data_file_path: str = "./data/data.pkl"):
+    """
+    This function downloads the data from Google Drive if it is not already present. You can run this function to
+    download and inspect the data before running the tests.
+    :param data_file_path:
+    :return:
+    """
     if os.path.exists(data_file_path):
         return pickle.load(open(data_file_path, "rb"))
 

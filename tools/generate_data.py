@@ -51,6 +51,18 @@ def gen_datum(
         seed: int = 0,
         method: Union[str, Callable[[int, int], np.ndarray]] = "random"
 ):
+    """
+    Generate one datum of the data. The datum is a dictionary with the following keys:
+    - adjacency_matrix: numpy.ndarray The adjacency matrix of the graph.
+    - best_path: Union[Tuple, List[int], np.ndarray] The best path found by the Christofides algorithm.
+    - path_cost: float The cost of the best path.
+    - seed: int The seed used to generate the graph.
+    - method: str The method used to generate the graph.
+    :param n_nodes:
+    :param seed:
+    :param method:
+    :return:
+    """
     adjacency_matrix = gen_random_graph(n_nodes, seed, method)
     cycle = nx_app.christofides(nx.from_numpy_array(adjacency_matrix), weight="weight")
     cost = PerformanceTestCase.get_path_cost(adjacency_matrix, cycle)
