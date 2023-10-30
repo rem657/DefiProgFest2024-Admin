@@ -1,0 +1,45 @@
+import os
+import pickle
+import sys
+import warnings
+from importlib import import_module
+
+from tools.tester import PerformanceTestCase, Tester, PEP8TestCase
+
+
+def main(root_folder: str, data_file_path: str = "./data/data.pkl"):
+    tester = Tester()
+    pep8_test = PEP8TestCase(name="PEP8", file_path="./tsp.py")
+    tester.add_test(pep8_test)
+    data = pickle.load(open(data_file_path, "rb"))
+    cwd = os.getcwd()
+    print(f"Working directory: {os.getcwd()}")
+
+    filename = f".tsp"
+    file_root_importlike = root_folder.replace('./', '').replace('/', '.')
+    cls_to_test = getattr(import_module(filename, file_root_importlike), "TSP")
+
+    os.chdir(root_folder)
+    performance_test = PerformanceTestCase(
+        name=f"Performance Test on {len(data)} graphs",
+        cls_to_test=cls_to_test,
+        constructor_inputs=[(datum["adjacency_matrix"],) for datum in data],
+        get_solution_mth_name="get_solution",
+        expected_solutions=[datum["best_path"] for datum in data],
+    )
+    tester.add_test(performance_test)
+    os.chdir(cwd)
+
+    tester.run()
+    print(tester)
+    tester.to_file(file_path=f"{root_folder}/test_results.txt")
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        input_folder = "./soumissions/RandomTeam"
+    else:
+        input_folder = sys.argv[1]
+    with warnings.catch_warnings():
+        warnings.filterwarnings("ignore", category=DeprecationWarning)
+        main(input_folder)
