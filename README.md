@@ -157,3 +157,11 @@ ou modifié le code d'une autre équipe. Si vous êtes pris en flagrant délit, 
 - [Discord server](https://discord.gg/F8kcefP3my) où vous pouvez poser vos questions et/ou
     collaborer avec vos coéquipiers.
 - [GitHub](https://github.com/JeremieGince/DefiProgFest2024) du défi.
+
+## Auteurs
+- [Jérémie Gince](https://github.com/JeremieGince)
+- [Rémi Lamontagne Caron](https://github.com/rem657)
+
+
+## Remerciements
+Un gros merci à [Antoine Carrier](https://github.com/AntoineCarrier) pour avoir fournit l'idée du défi.
