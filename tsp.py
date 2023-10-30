@@ -8,7 +8,7 @@ class TSP:
             self,
             adjacency_matrix: np.ndarray,
     ):
-        self.adjacency_matrix = adjacency_matrix
+        self.adjacency_matrix = adjacency_matrix # La matrice d'adjacence qui sera utilisée pour calculer le coût des chemins
 
     def get_solution(self) -> Union[Tuple, List[int], np.ndarray]:
         r"""
@@ -22,13 +22,3 @@ class TSP:
         path = np.random.permutation(self.adjacency_matrix.shape[0])
         cycle = np.concatenate((path, [path[0]]))
         return cycle
-
-
-
-
-
-
-
-
-
-

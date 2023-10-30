@@ -1,2 +1,2 @@
 [PEP8: 100.00 %]
-[Performance Test on 100 graphs: 20.99 %]
+[Performance Test on 100 graphs: 20.87 %]
