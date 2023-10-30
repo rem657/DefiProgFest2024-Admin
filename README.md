@@ -55,16 +55,21 @@ d'utiliser l'un des algorithmes suivants qui, selon nous, sont les plus simples 
 
 
 ## À faire
-<span style="color:red;font-size:15pt">La première étape que vous devez faire est de créer un fichier dans le fichier 
+<span style="color:red;font-size:15pt">La première étape que vous devez faire est de créer un dossier dans le dossier 
 `soumissions` avec un nom de votre choix et d'y copier le fichier `tsp.py`</span>
 
 <span style="font-size:18pt;color:#1c407e;text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">**Vous 
-avez à implémenter votre propre agent dans la classe `TSP` du fichier [tsp.py](tsp.py) et implémenter sa méthode 
-`get_solution() -> Union[Tuple, List[int], np.ndarray]`. Votre agent peut comporter autant de méthodes et d'attributs 
-que vous souhaitez, mais la méthode `get_solution()` ainsi que l'attribut `self.adjacency_matrix` doivent s'y trouver.**</span> 
+avez à implémenter votre propre algorithme dans la classe `TSP` du fichier [tsp.py](tsp.py) et implémenter sa méthode 
+`get_solution() -> Union[Tuple, List[int], np.ndarray]`. Votre algorithme peut comporter autant de méthodes et d'attributs 
+que vous souhaitez, mais la méthode `get_solution()` doit s'y trouver.**</span> 
 
-Finalement, la signature du constructeur de la classe `TSP` ne devrait pas être modifiée. Toutefois, le contenu du
-constructeur peut être modifié à votre guise tant que la ligne `self.adjacency_matrix = adjacency_matrix` est présente.
+De plus, la signature du constructeur de la classe `TSP` ne devrait pas être modifiée. Toutefois, le contenu du
+constructeur peut être modifié à votre guise.
+
+Finalement, l'utilisation de librairies de résolution du problème de TSP comme networkx est interdite. Vous devez
+implémenter votre propre algorithme de résolution de TSP à l'aide des librairies de base de python (numpy, scipy,
+etc.). Vous pouvez utiliser des librairies pour générer des graphes aléatoires, mais vous ne pouvez pas utiliser de
+librairies pour résoudre le problème de TSP.
 
 ## Critères d'évaluation
 - Coût total du cycle hamiltonien: 50%
@@ -105,6 +110,7 @@ qui va rouler les tests et vous afficher vos résultats.
 
 <span style="color:red;font-size:40pt">**ATTENTION** IL EST TRÈS IMPORTANTE DE RESPECTER LES SECTIONS SUIVANTES POUR QUE
 VOTRE SOLUTION SOIT ÉVALUÉ</span> 
+
 ## Remise du projet
 
 Le projet devra être remis dans un dossier nommé avec votre nom d'équipe ou le nom de votre algorithme
@@ -122,11 +128,14 @@ comment organiser votre soumission.
 
 ### Soumission via GitHub
 Vous devrez faire un "[fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo)" du 
-[dépôt GitHub du défi](https://github.com/JeremieGince/DefiProgFest2024) pour obtenir le code. Une fois votre solution implémentée et testée (avec tous les fichiers 
+[dépôt GitHub du défi](https://github.com/JeremieGince/DefiProgFest2024) pour obtenir le code. Une fois votre solution 
+implémentée et testée (avec tous les fichiers 
 demandés dans le dossier `soumissions`), vous devrez faire un
-"[pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)" sur GitHub pour soumettre votre solution. Prenez exemple sur le dossier
-[RandomTeam](soumissions/RandomTeam) pour savoir comment organiser votre soumission. Les seuls fichiers modifiés devraient se trouver dans 
-le dossier que vous avez créé dans le fichier `soumissions`, sinon votre pull request sera refusé. 
+"[pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)" 
+sur GitHub pour soumettre votre solution. Prenez exemple sur le dossier
+[RandomTeam](soumissions/RandomTeam) pour savoir comment organiser votre soumission. Les seuls fichiers modifiés 
+devraient se trouver dans 
+le dossier que vous avez créé dans le dossier `soumissions`, sinon votre pull request sera refusé. 
 <span style="color: red"> i.e.: Vous ne devez pas modifier les fichiers `main.py`, `tsp.py`, `run_test.py`, mais les 
 copier dans le dossier que vous avez créé dans `soumissions` et les modifier à cet endroit</span>. Si vous avez des 
 questions sur la procédure de soumission, vous pouvez faire un *issue* dans le dépôt GitHub du défi où nous pourrons 
