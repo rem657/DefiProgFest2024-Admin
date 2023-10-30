@@ -4,14 +4,27 @@ import sys
 import warnings
 from importlib import import_module
 
+import pythonbasictools as pbt
+
 from tools.tester import PerformanceTestCase, Tester, PEP8TestCase
+
+
+def get_data(data_file_path: str = "./data/data.pkl"):
+    if os.path.exists(data_file_path):
+        return pickle.load(open(data_file_path, "rb"))
+
+    pbt.google_drive.GoogleDriveDownloader(
+        file_id="1R8TF0BdUbKF-Z6yiDPNFIFo91ewvPxF2",
+        dest_path=data_file_path,
+    ).download()
+    return pickle.load(open(data_file_path, "rb"))
 
 
 def main(root_folder: str, data_file_path: str = "./data/data.pkl"):
     tester = Tester()
     pep8_test = PEP8TestCase(name="PEP8", file_path="./tsp.py")
     tester.add_test(pep8_test)
-    data = pickle.load(open(data_file_path, "rb"))
+    data = get_data(data_file_path=data_file_path)
     cwd = os.getcwd()
     print(f"Working directory: {os.getcwd()}")
 
