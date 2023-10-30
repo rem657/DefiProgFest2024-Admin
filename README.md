@@ -30,7 +30,8 @@ un problème d'importance en recherche.
 Pour résoudre ce type de problème en utilisant la programmation et python, nous allons vous fournir une matrice 
 d'adjacence qui représente les distances entre les villes. Une matrice d'adjacence est une matrice carrée de taille
 `N` par `N` où `N` est le nombre de villes. La valeur à la position `(i, j)` de la matrice représente la distance entre 
-la ville `i` et la ville `j`. Si la valeur est égale à `NaN`, cela signifie que la ville `i` et la ville `j` ne sont pas
+la ville `i` et la ville `j`. Si la valeur est égale à `numpy.NaN` ou `numpy.inf`, cela signifie que 
+la ville `i` et la ville `j` ne sont pas
 connectées. Voici un exemple de matrice d'adjacence pour 4 villes:
 
 | (i, j) | 0 | 1 | 2 | 3 |
