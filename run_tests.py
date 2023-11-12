@@ -58,7 +58,7 @@ def main(root_folder: str, data_file_path: str = "./data/data.pkl"):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        input_folder = "./soumissions/RandomTeam"
+        input_folder = "./soumissions/RLC_BruteForce"
     else:
         input_folder = sys.argv[1]
     with warnings.catch_warnings():
